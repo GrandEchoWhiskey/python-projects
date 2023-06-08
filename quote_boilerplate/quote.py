@@ -35,7 +35,7 @@ def get_quote_files(path: str = '.') -> List[str]:
         raise FileNotFoundError('No quote files found.')
     return files
 
-def search_quote_file(fragment: str):
+def search_quote_files(fragment: str) -> List[str]:
     """Find a quotes file."""
     files = get_quote_files()
     results = []
@@ -59,7 +59,12 @@ def get_random_quote(file: str):
     return random.choice(quotes)
 
 if __name__ == '__main__':
-    using_file = random.choice(get_quote_files())
-    q = Quote.from_dict(get_random_quote(using_file))
-    print('- ' + using_file.split(os.sep)[-1].split('.')[0].replace('_', ' ').title())
-    print(q)
+    try:
+        using_file = random.choice(get_quote_files())
+        q = Quote.from_dict(get_random_quote(using_file))
+        print('- ' + using_file.split(os.sep)[-1].split('.')[0].replace('_', ' ').title())
+        print(q)
+    except FileNotFoundError as e:
+        print(e)
+        print('Please make sure you have quote files in the current directory, or a subdirectory.')
+        raise SystemExit(1)
