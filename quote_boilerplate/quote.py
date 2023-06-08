@@ -68,7 +68,7 @@ class QuoteMenager:
         files = self.get_files()
         results = []
         for file in files:
-            filename = file.split('/')[-1]
+            filename = file.split(os.sep)[-1]
             filename = filename[len(self.__prefix):len(self.__suffix) * -1]
             if fragment in filename:
                 results.append(file)
