@@ -44,6 +44,6 @@ if __name__ == '__main__':
 
 In this example, a `QuoteManager` object is created, and a random quote is retrieved using the `get_random_quote()` method. The quote is then printed to the console.
 
-Note: Make sure to have the quote files in the specified format `('*_quotes.json')` in the specified directory or provide a custom path and filename pattern.
+> Note: Make sure to have the quote files in the specified format `('*_quotes.json')` in the specified directory or provide a custom path and filename pattern.
 
 Feel free to customize and use the provided code to manage and retrieve quotes in your Python projects!
