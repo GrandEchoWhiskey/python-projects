@@ -2,7 +2,7 @@
 
 Below is a list of 50 Python software projects
 
-- [x] Secure Password Generator with Strength Tests
+- [x] [Keep Password](https://github.com/GrandEchoWhiskey/keep-password) - Secure Password Generator with Strength Tests
 - [ ] Simple Todo List Application
 - [ ] Weather Forecast Application
 - [ ] Web Scraper for Data Extraction
