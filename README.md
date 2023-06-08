@@ -48,7 +48,7 @@ Below is a list of 50 Python software projects
 - [ ] Data Visualization Dashboard
 - [ ] Word Count Analyzer for Text Documents
 - [ ] Pomodoro Technique Timer
-- [x] [BMI (Body Mass Index) Calculator](./bmi_boilerplate/)
+- [x] [BMI (Body Mass Index) Calculator](./bmi_boilerplate#readme)
 - [ ] Unit Converter
 - [ ] Automated Testing Framework
 
