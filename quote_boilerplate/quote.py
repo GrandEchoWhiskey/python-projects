@@ -24,47 +24,78 @@ class Quote:
     def __str__(self):
         return f"{self.value} ~ {self.author}"
 
-def get_quote_files(path: str = '.') -> List[str]:
-    """Get all files in a directory recursively."""
-    files = []
-    for dirpath, dirnames, filenames in os.walk(path):
-        for filename in filenames:
-            if filename.endswith('.json') and 'quotes' in filename:
-                files.append(os.path.abspath(os.path.join(dirpath, filename)))
-    if len(files) == 0:
-        raise FileNotFoundError('No quote files found.')
-    return files
+class QuoteMenager:
 
-def search_quote_files(fragment: str) -> List[str]:
-    """Find a quotes file."""
-    files = get_quote_files()
-    results = []
-    for file in files:
-        filename = file.split('/')[-1]
-        if fragment in filename:
-            results.append(file)
-    if len(results) == 0:
-        raise FileNotFoundError('No quote files found.')
-    return results
+    def __init__(self, path: str = '.', filename: str = '*_quotes.json'):
+        self.__path = path
+        self.__filename = filename
 
-def get_quotes(file: str):
-    """Get quotes from a file."""
-    with open(file, 'r') as f:
-        quotes = json.load(f)
-    return quotes
-
-def get_random_quote(file: str):
-    """Get a random quote from a file."""
-    quotes = get_quotes(file)
-    return random.choice(quotes)
+        if filename.count('*') > 1:
+            raise ValueError('Filename can only contain one wildcard.')
+        
+        self.__files = self.get_files()
+    
+    def __is_file(self):
+        return os.path.isfile(self.__path)
+    
+    @property
+    def __prefix(self):
+        splitted = self.__filename.split('*')
+        if len(splitted) > 0:
+            return splitted[0]
+        return self.__filename
+    
+    @property
+    def __suffix(self):
+        splitted = self.__filename.split('*')
+        if len(splitted) > 1:
+            return splitted[1]
+        return self.__filename
+    
+    def get_files(self) -> List[str]:
+        files = []
+        if self.__is_file():
+            return files
+        for dirpath, dirnames, filenames in os.walk(self.__path):
+            for filename in filenames:
+                if filename.endswith(self.__suffix) and filename.startswith(self.__prefix):
+                    files.append(os.path.abspath(os.path.join(dirpath, filename)))
+        if len(files) == 0:
+            raise FileNotFoundError('No quote files found.')
+        return files
+    
+    def search_files(self, fragment: str) -> List[str]:
+        files = self.get_files()
+        results = []
+        for file in files:
+            filename = file.split('/')[-1]
+            filename = filename[len(self.__prefix):len(self.__suffix) * -1]
+            if fragment in filename:
+                results.append(file)
+        if len(results) == 0:
+            raise FileNotFoundError('No quote files found.')
+        self.__files = results
+    
+    def get_quotes(self) -> List[Quote]:
+        if len(self.__files) == 0:
+            raise FileNotFoundError('No quote files found.')
+        quotes = []
+        for file in self.__files:
+            if not os.path.isfile(file):
+                raise FileNotFoundError(f'File {file} not found.')
+            with open(file, 'r') as f:
+                quotes.extend(json.load(f))
+        qs = []
+        for q in quotes:
+            qs.append(Quote.from_dict(q))
+        return qs
+    
+    def get_random_quote(self) -> Quote:
+        quotes = self.get_quotes()
+        if len(quotes) == 0:
+            raise ValueError('No quotes found.')
+        return random.choice(quotes)
 
 if __name__ == '__main__':
-    try:
-        using_file = random.choice(get_quote_files())
-        q = Quote.from_dict(get_random_quote(using_file))
-        print('- ' + using_file.split(os.sep)[-1].split('.')[0].replace('_', ' ').title())
-        print(q)
-    except FileNotFoundError as e:
-        print(e)
-        print('Please make sure you have quote files in the current directory, or a subdirectory.')
-        raise SystemExit(1)
+    x = QuoteMenager()
+    print(x.get_random_quote())
