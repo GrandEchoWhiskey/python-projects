@@ -38,7 +38,9 @@ The BMI interpretation is based on the following weight status categories:
 
 BMI	| Weight Status
 --- | ---
-Less than 18.5 | Underweight
+15.9 or less | Emaciation II
+16 - 16.9 | Emaciation I
+17 - 18.5 | Underweight
 18.5 - 24.9 | Normal
 25 - 29.9 | Overweight
 30 - 34.9 | Obesity I
