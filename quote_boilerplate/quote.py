@@ -61,4 +61,5 @@ def get_random_quote(file: str):
 if __name__ == '__main__':
     using_file = random.choice(get_quote_files())
     q = Quote.from_dict(get_random_quote(using_file))
+    print('- ' + using_file.split(os.sep)[-1].split('.')[0].replace('_', ' ').title())
     print(q)
