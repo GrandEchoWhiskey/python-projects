@@ -8,9 +8,7 @@ This is a simple BMI (Body Mass Index) calculator implemented in Python. It allo
 To use the BMI calculator, follow the instructions below:
 
 1. Open a terminal or command prompt.
-
 2. Navigate to the directory where the `bmi.py` file is located.
-
 3. Run the script with the following command:
 
 ```shell
@@ -22,7 +20,6 @@ Replace `<weight>` with your weight in kilograms (kg) and `<height>` with your h
 python bmi.py 70 170
 ```
 This will calculate the BMI and display the result.
-
 > Note: Make sure to provide valid numeric inputs for weight and height.
 
 ### Class Details
@@ -30,11 +27,10 @@ This will calculate the BMI and display the result.
 This class represents a BMI calculator and provides the following methods:
 
 - `__init__(self, weight: float, height: float)`: Initializes a `bmi` object with the specified weight and height inputs.
-
+- `height`: This property returns the weight in kilograms.
+- `weight`: This property returns the height in centimeters
 - `value`: This property calculates and returns the BMI value based on the weight and height inputs.
-
 - `interpretation`: This property determines the weight status interpretation based on the BMI value.
-
 - `__str__()`: This method overrides the string representation of the `bmi` object and provides a formatted result string with weight, height, BMI, and interpretation.
 
 ### BMI Interpretation
