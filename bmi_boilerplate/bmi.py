@@ -36,6 +36,8 @@ class bmi:
         BMI	Weight Status
         """
         __bmi_table = {
+            "Emaciation II": 16,
+            "Emaciation I": 17,
             "Underweight": 18.5,
             "Normal": 25,
             "Overweight": 30,
