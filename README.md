@@ -44,7 +44,7 @@ Below is a list of 50 Python software projects
 - [ ] Social Network Analysis Tool
 - [ ] Document Similarity Checker
 - [ ] Password Manager
-- [ ] Random Quote Generator
+- [x] [Random Quote Generator](./quote_boilerplate#readme)
 - [ ] Data Visualization Dashboard
 - [ ] Word Count Analyzer for Text Documents
 - [ ] Pomodoro Technique Timer
