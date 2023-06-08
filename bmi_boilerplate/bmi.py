@@ -28,7 +28,7 @@ class bmi:
         """
         BMI = weight (kg) / (height (cm) / 100) ^ 2
         """
-        return self.__weight / ((self.__height/100) ** 2)
+        return self.weight / ((self.height/100) ** 2)
     
     @property
     def interpretation(self):
