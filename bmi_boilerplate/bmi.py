@@ -3,13 +3,30 @@ from math import inf as infinity
 class bmi:
 
     def __init__(self, weight: float, height: float):
+        """
+        Weight in kilograms (kg), height in centimeters (cm).
+        """
         self.__weight = float(weight)
         self.__height = float(height)
 
     @property
+    def weight(self):
+        """
+        Weight in kilograms (kg).
+        """
+        return self.__weight
+    
+    @property
+    def height(self):
+        """
+        Height in centimeters (cm).
+        """
+        return self.__height
+
+    @property
     def value(self):
         """
-        Weight in kilograms (kg), height in centimeters (cm).
+        BMI = weight (kg) / (height (cm) / 100) ^ 2
         """
         return self.__weight / ((self.__height/100) ** 2)
     
@@ -35,8 +52,8 @@ class bmi:
         __padding = 30
         __ljust = 19
         __result = " BMI RESULT ".center(__padding, "-") + "\n"
-        __result += "Weight: ".ljust(__ljust, ' ') + f"{self.__weight:.1f}kg \n"
-        __result += "Height: ".ljust(__ljust, ' ') + f"{self.__height:.1f}cm \n"
+        __result += "Weight: ".ljust(__ljust, ' ') + f"{self.weight:.1f}kg \n"
+        __result += "Height: ".ljust(__ljust, ' ') + f"{self.height:.1f}cm \n"
         __result += "BMI: ".ljust(__ljust, ' ') + f"{self.value:.2f} \n"
         __result += "Interpretation: ".ljust(__ljust, ' ') + f"{self.interpretation} \n"
         __result += "-" * __padding
