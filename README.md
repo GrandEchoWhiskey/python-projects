@@ -2,7 +2,9 @@
 
 Below is a list of 50 Python software projects
 
-- [x] [Keep Password](https://github.com/GrandEchoWhiskey/keep-password) - Secure Password Generator with Strength Tests
+- [x] [Secure Password Generator](https://github.com/GrandEchoWhiskey/keep-password)
+- [x] [Random Quote Generator](./quote_boilerplate#readme)
+- [x] [BMI (Body Mass Index) Calculator](./bmi_boilerplate#readme)
 - [ ] Simple Todo List Application
 - [ ] Weather Forecast Application
 - [ ] Web Scraper for Data Extraction
@@ -44,11 +46,9 @@ Below is a list of 50 Python software projects
 - [ ] Social Network Analysis Tool
 - [ ] Document Similarity Checker
 - [ ] Password Manager
-- [x] [Random Quote Generator](./quote_boilerplate#readme)
 - [ ] Data Visualization Dashboard
 - [ ] Word Count Analyzer for Text Documents
 - [ ] Pomodoro Technique Timer
-- [x] [BMI (Body Mass Index) Calculator](./bmi_boilerplate#readme)
 - [ ] Unit Converter
 - [ ] Automated Testing Framework
 
