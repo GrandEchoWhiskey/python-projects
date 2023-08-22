@@ -33,6 +33,11 @@ This class represents a BMI calculator and provides the following methods:
 - `interpretation`: This property determines the weight status interpretation based on the BMI value.
 - `__str__()`: This method overrides the string representation of the `bmi` object and provides a formatted result string with weight, height, BMI, and interpretation.
 
+### BMI Calculation
+```math
+bmi = \left({weight (kg)\over{height (cm) \div 100}}\right)^2
+```
+
 ### BMI Interpretation
 The BMI interpretation is based on the following weight status categories:
 
